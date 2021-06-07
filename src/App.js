@@ -1,10 +1,10 @@
-import "./App.css"
+import "./App.scss"
+import Nav from "./components/nav/nav.component"
 
 function App() {
   return (
     <>
-      <h1>Cat Blog</h1>
-      <span>Talk about cats and cat accessories</span>
+      <Nav />
     </>
   )
 }
