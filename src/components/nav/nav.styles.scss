@@ -1,22 +1,37 @@
-#nav-bar {
-  box-shadow: -2.5px 0px 15px rgba(0, 0, 0, 0.418);
-  padding: 1.8rem;
-  width: 20%;
+@import "../../App.scss";
+
+.nav-bar-container {
   height: 100vh;
+  width: 20%;
+  padding: 0.5rem 0 0.5rem 0.5rem;
 
-  #logo-container {
-  }
+  #nav-bar {
+    box-shadow: -2.5px 0px 15px rgba(0, 0, 0, 0.418);
+    padding: 1.8rem;
+    height: 100%;
+    border-radius: $border-radius-main;
 
-  .nav-links {
-    margin-top: 5rem;
+    #logo-container {
+    }
 
-    ul {
-      list-style-type: none;
-      display: inline-block;
+    .nav-links {
+      margin-top: 5rem;
 
-      li {
-        font-size: 1.2rem;
-        margin: 2rem 0;
+      ul {
+        list-style-type: none;
+        display: inline-block;
+
+        li {
+          font-size: 1.2rem;
+          margin: 2rem 0;
+          font-weight: 300;
+          color: $color-main-grey;
+
+          &.active-link {
+            color: $color-main-red;
+            font-weight: 500;
+          }
+        }
       }
     }
   }

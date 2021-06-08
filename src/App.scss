@@ -7,7 +7,9 @@ $backgroundColor: #edf2f4;
 $color-main-red: #ef233c;
 $color-darker-red: #d90429;
 $color-main-grey: #8d99ae;
+$color-dark-grey: #424242;
 $color-darker-grey: #2b2d42;
+$border-radius-main: 5px;
 
 $normalFont: "Montserrat", sans-serif, Roboto, sans-serif;
 
@@ -63,7 +65,7 @@ h2 {
 
 h3 {
   font-size: 2.7rem;
-  font-weight: normal;
+  font-weight: 600;
 }
 
 h4,
