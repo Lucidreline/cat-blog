@@ -1,16 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800&display=swap");
 
 // global vars
-$normalTextColor: #021417;
+$normalTextColor: black;
 $fadedTextColor: #0214179c;
-$backgroundColor: #fff;
-$accentColor1: #afebf8;
-$accentColor2: #8bd8f2;
-$accentColor3: #6bc0ea;
-$accentColor4: #66b2ec;
-$accentColor5: #56a6e2;
-$warningColor: #ecb666;
-$errorColor: #ec7366;
+$backgroundColor: #edf2f4;
+$color-main-red: #ef233c;
+$color-darker-red: #d90429;
+$color-main-grey: #8d99ae;
+$color-darker-grey: #2b2d42;
 
 $normalFont: "Montserrat", sans-serif, Roboto, sans-serif;
 
@@ -25,10 +22,10 @@ html {
 }
 
 *::selection {
-  background: $accentColor4 !important; /* WebKit/Blink Browsers */
+  background: $color-main-grey !important; /* WebKit/Blink Browsers */
 }
 *::-moz-selection {
-  background: $accentColor4 !important; /* Gecko Browsers */
+  background: $color-main-grey !important; /* Gecko Browsers */
 }
 
 body {

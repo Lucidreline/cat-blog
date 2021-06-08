@@ -9,7 +9,7 @@ const BlogCard = () => {
       <div className="card-info">
         <div className="content-and-author">
           <div className="content">
-            <h2 className="blog-card-title">ipsum dolor sit</h2>
+            <h2 className="blog-card-title">Ipsum Dolor Sit</h2>
             <p className="blog-card-content-preview">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, est laudantium necessitatibus.
             </p>
