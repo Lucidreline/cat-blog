@@ -1,0 +1,70 @@
+.blog-card {
+  width: 80%;
+  height: 15rem;
+  display: flex;
+
+  .card-img {
+    background-image: url("https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1101&q=80");
+    background-position: center;
+    background-size: cover;
+
+    width: 30%;
+    height: 100%;
+  }
+
+  .card-info {
+    width: 70%;
+    display: flex;
+
+    .content-and-author {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.75rem 0.5rem;
+
+      .blog-card-title {
+        font-size: 2rem;
+      }
+      .blog-card-content-preview {
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+    }
+
+    .likes-and-share {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.75rem 0.25rem;
+      align-items: center;
+      .share-btn {
+        background-image: url(https://www.jing.fm/clipimg/full/304-3040149_share-png-youtube-share-button-png.png);
+        height: 2rem;
+        width: 2rem;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .likes-btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 3.5rem;
+
+        .likes-counter {
+          font-size: 1.75rem;
+        }
+
+        .likes-btn {
+          background-image: url(https://i.pinimg.com/originals/4e/40/dd/4e40ddd11beb9ba671a0b59948861afb.png);
+          height: 2rem;
+          width: 2rem;
+          background-size: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

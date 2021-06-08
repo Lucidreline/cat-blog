@@ -43,11 +43,6 @@ input {
   font-family: $normalFont;
 }
 
-.container {
-  width: 85%;
-  margin: auto;
-}
-
 h1 {
   font-size: 2.6rem;
 }
@@ -82,4 +77,8 @@ h5 {
 a {
   color: $normalTextColor;
   text-decoration: none;
+}
+
+.app {
+  display: flex;
 }
