@@ -6,7 +6,10 @@ function App() {
   return (
     <div className='app'>
       <Nav />
-      <BlogCard />
+      <div id='page-content'>
+        <BlogCard />
+        <BlogCard />
+      </div>
     </div>
   )
 }

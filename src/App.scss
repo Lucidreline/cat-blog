@@ -11,6 +11,8 @@ $color-dark-grey: #424242;
 $color-darker-grey: #2b2d42;
 $border-radius-main: 5px;
 
+$main-layout-spacing: 0.5rem;
+$main-layout-shadow: 1.5px 1.5px 7px rgba(0, 0, 0, 0.5);
 $normalFont: "Montserrat", sans-serif, Roboto, sans-serif;
 
 // styles
@@ -80,4 +82,9 @@ a {
 
 .app {
   display: flex;
+
+  #page-content {
+    width: 80%;
+    padding: $main-layout-spacing;
+  }
 }

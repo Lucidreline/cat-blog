@@ -3,10 +3,10 @@
 .nav-bar-container {
   height: 100vh;
   width: 20%;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: $main-layout-spacing 0 $main-layout-spacing $main-layout-spacing;
 
   #nav-bar {
-    box-shadow: -2.5px 0px 15px rgba(0, 0, 0, 0.418);
+    box-shadow: $main-layout-shadow;
     padding: 1.8rem;
     height: 100%;
     border-radius: $border-radius-main;
