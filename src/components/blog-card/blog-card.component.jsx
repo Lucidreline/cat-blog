@@ -2,17 +2,16 @@ import React from "react"
 
 import "./blog-card.styles.scss"
 
-const BlogCard = () => {
+const BlogCard = ({title, textBody}) => {
   return (
     <article className='blog-card'>
       <div className='card-img'></div>
       <div className='card-info'>
         <div className='content-and-author'>
           <div className='content'>
-            <h3 className='blog-card-title'>Ipsum Dolor Sit</h3>
+            <h3 className='blog-card-title'>{title}</h3>
             <p className='blog-card-content-preview'>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Possimus, est laudantium necessitatibus.
+              {textBody}
             </p>
           </div>
           <div className='author-container'>

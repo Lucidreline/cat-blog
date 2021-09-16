@@ -1,14 +1,13 @@
 import "./App.scss"
-import BlogCard from "./components/blog-card/blog-card.component"
 import Nav from "./components/nav/nav.component"
+import { HomePage } from "./components/pages/homepage/homepage.component"
 
 function App() {
   return (
     <div className='app'>
       <Nav />
       <div id='page-content'>
-        <BlogCard />
-        <BlogCard />
+        <HomePage/>
       </div>
     </div>
   )
