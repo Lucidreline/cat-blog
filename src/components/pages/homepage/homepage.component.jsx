@@ -1,28 +1,32 @@
-import axios from 'axios';
-import React, {useState, useEffect} from 'react'
-import BlogCard from '../../blog-card/blog-card.component'
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { BlogCardList } from "../../blog-card-list/blog-card-list.component";
 
 export const HomePage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-    const blogPostResults = await axios('http://localhost:3000/posts')
+      const blogPostResults = await axios("http://149.28.93.112:3000/posts");
+      // [
+      //   {
+      //     _id: string,
+      //     authorUsername: string,
+      //     author: string,
+      //     textBody: string,
+      //     title: string,
+      //     imageUrl: string,
+      //     __v: 0,
+      //   },
+      // ];
 
-    blogPostResults.data.forEach(async (post) => {
-      const username = await axios (`http://localhost:3000/users/${post.author}`)
-      post.authorUsername = username.data.userName
-    })
-
-    setBlogPosts(blogPostResults.data)
-  }
-  fetchData()
-  }, [])
+      setBlogPosts(blogPostResults.data);
+    };
+    fetchData();
+  }, []);
   return (
     <>
-      {blogPosts.map(({_id,...props}) => (
-        <BlogCard key={_id} {...props}/>
-      ))}
+      <BlogCardList blogPosts={blogPosts} />
     </>
-  )
-}
+  );
+};
