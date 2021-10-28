@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { TextInput } from "../../text-input/text-input.component";
+import { useHistory } from "react-router-dom";
 
 export const SignInPage = () => {
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,10 +24,13 @@ export const SignInPage = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log("Submitting");
     e.preventDefault();
 
     console.log(username, password);
+    axios
+      .post("http://149.28.93.112:3000/users/login", { username, password })
+      .then((responce) => history.push("/"))
+      .catch((err) => console.log(err));
   };
 
   return (
