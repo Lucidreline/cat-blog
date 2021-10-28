@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./nav.styles.scss";
 
@@ -8,31 +8,41 @@ const Nav = () => {
     <div className="nav-bar-container">
       <nav id="nav-bar">
         <div id="logo-container">
-          <h1 id="logo">CB</h1>
+          <NavLink to="/">
+            <h1 id="logo">CB</h1>
+          </NavLink>
         </div>
         <div className="nav-links">
           <ul>
-            <li className="active-link">
-              <Link to="/">Home</Link>
+            <li>
+              <NavLink exact activeClassName="active-link" to="/">
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/signin">Sign In</Link>
+              <NavLink activeClassName="active-link" to="/signin">
+                Sign In
+              </NavLink>
             </li>
             <li>
-              <Link to="/signup">Sign Up</Link>
+              <NavLink activeClassName="active-link" to="/signup">
+                Sign Up
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink activeClassName="active-link" to="/about">
+                About
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to={{
                   pathname: "https://manuelc.me",
                 }}
                 target="_blank"
               >
                 gotMilk?
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -26,8 +26,13 @@
           margin: 2rem 0;
           font-weight: 300;
           color: $color-main-grey;
+          transition: 0.2s ease;
 
-          &.active-link a {
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          a.active-link {
             color: $color-main-red;
             font-weight: 500;
           }
