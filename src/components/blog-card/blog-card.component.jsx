@@ -5,6 +5,7 @@ import "./blog-card.styles.scss";
 //   {
 //     _id: string,
 //     authorUsername: string,
+//     usersLiked: string[],
 //     author: string,
 //     textBody: string,
 //     title: string,
@@ -13,10 +14,21 @@ import "./blog-card.styles.scss";
 //   },
 // ];
 
-const BlogCard = ({ title, textBody, authorUsername, imageUrl }) => {
+const BlogCard = ({
+  title,
+  textBody,
+  authorUsername,
+  imageUrl,
+  usersLiked,
+}) => {
   return (
     <article className="blog-card">
-      <div className="card-img"></div>
+      <div
+        className="card-img"
+        style={{
+          backgroundImage: `url("${imageUrl}")`,
+        }}
+      ></div>
       <div className="card-info">
         <div className="content-and-author">
           <div className="content">
@@ -32,7 +44,7 @@ const BlogCard = ({ title, textBody, authorUsername, imageUrl }) => {
             <div className="share-btn"></div>
           </div>
           <div className="likes-btn-container">
-            <span className="likes-counter">5</span>
+            <span className="likes-counter">{usersLiked.length}</span>
             <div className="likes-btn"></div>
           </div>
         </div>
