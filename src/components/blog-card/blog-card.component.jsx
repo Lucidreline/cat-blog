@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-
 
 import "./blog-card.styles.scss";
 // [
@@ -22,12 +21,36 @@ const BlogCard = ({
   authorUsername,
   imageUrl,
   usersLiked,
-  id
+  id,
 }) => {
+  const [postLikes, setPostLikes] = useState(usersLiked.length);
 
   const likePost = () => {
-    axios.patch(`http://149.28.93.112:3000/posts/like/${id}`, {}, {withCredentials: true}).catch(err => console.log(err))
-  }
+    axios
+      .patch(
+        `http://149.28.93.112:3000/posts/like/${id}`,
+        {},
+        { withCredentials: true }
+      )
+      .then((responce) => {
+        setPostLikes(responce.data.usersLiked.length);
+      })
+      .catch((error) => {
+        if (error.response.data.message === "User has already liked post") {
+          // unlike post
+          axios
+            .patch(
+              `http://149.28.93.112:3000/posts/unlike/${id}`,
+              {},
+              { withCredentials: true }
+            )
+            .then((responce) => {
+              setPostLikes(responce.data.usersLiked.length);
+            })
+            .catch((err) => console.log(err));
+        }
+      });
+  };
 
   return (
     <article className="blog-card">
@@ -52,7 +75,7 @@ const BlogCard = ({
             <div className="share-btn"></div>
           </div>
           <div className="likes-btn-container" onClick={() => likePost()}>
-            <span className="likes-counter">{usersLiked.length}</span>
+            <span className="likes-counter">{postLikes}</span>
             <div className="likes-btn"></div>
           </div>
         </div>
