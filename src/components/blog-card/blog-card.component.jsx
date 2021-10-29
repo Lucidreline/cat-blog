@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 
 import "./blog-card.styles.scss";
@@ -23,6 +25,8 @@ const BlogCard = ({
   usersLiked,
   id,
 }) => {
+  const history = useHistory();
+
   const [postLikes, setPostLikes] = useState(usersLiked.length);
 
   const likePost = () => {
@@ -36,19 +40,7 @@ const BlogCard = ({
         setPostLikes(responce.data.usersLiked.length);
       })
       .catch((error) => {
-        if (error.response.data.message === "User has already liked post") {
-          // unlike post
-          axios
-            .patch(
-              `http://149.28.93.112:3000/posts/unlike/${id}`,
-              {},
-              { withCredentials: true }
-            )
-            .then((responce) => {
-              setPostLikes(responce.data.usersLiked.length);
-            })
-            .catch((err) => console.log(err));
-        }
+        history.push("/signin");
       });
   };
 
