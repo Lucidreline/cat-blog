@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./nav.styles.scss";
 
-const Nav = () => {
+const Nav = ({ currentUser }) => {
   return (
     <div className="nav-bar-container">
       <nav id="nav-bar">
@@ -19,16 +19,7 @@ const Nav = () => {
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink activeClassName="active-link" to="/signin">
-                Sign In
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeClassName="active-link" to="/signup">
-                Sign Up
-              </NavLink>
-            </li>
+            {currentUser ? <LoggedInLinks /> : <LoggedOutLinks />}
             <li>
               <NavLink activeClassName="active-link" to="/about">
                 About
@@ -48,6 +39,40 @@ const Nav = () => {
         </div>
       </nav>
     </div>
+  );
+};
+
+const LoggedInLinks = () => {
+  return (
+    <>
+      <li>
+        <NavLink activeClassName="active-link" to="/create">
+          Create
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active-link" to="/logout">
+          Log Out
+        </NavLink>
+      </li>
+    </>
+  );
+};
+
+const LoggedOutLinks = () => {
+  return (
+    <>
+      <li>
+        <NavLink activeClassName="active-link" to="/signin">
+          Sign In
+        </NavLink>
+      </li>
+      <li>
+        <NavLink activeClassName="active-link" to="/signup">
+          Sign Up
+        </NavLink>
+      </li>
+    </>
   );
 };
 
