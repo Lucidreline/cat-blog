@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 
 import "./blog-card.styles.scss";
 // [
@@ -20,7 +22,13 @@ const BlogCard = ({
   authorUsername,
   imageUrl,
   usersLiked,
+  id
 }) => {
+
+  const likePost = () => {
+    axios.patch(`http://149.28.93.112:3000/posts/like/${id}`, {}, {withCredentials: true}).catch(err => console.log(err))
+  }
+
   return (
     <article className="blog-card">
       <div
@@ -43,7 +51,7 @@ const BlogCard = ({
           <div className="share-btn-container">
             <div className="share-btn"></div>
           </div>
-          <div className="likes-btn-container">
+          <div className="likes-btn-container" onClick={() => likePost()}>
             <span className="likes-counter">{usersLiked.length}</span>
             <div className="likes-btn"></div>
           </div>

@@ -16,7 +16,7 @@ export const BlogCardList = ({ blogPosts }) => {
   return (
     <div>
       {blogPosts.map(({ _id, ...rest }) => (
-        <BlogCard key={_id} {...rest} />
+        <BlogCard key={_id} id={_id} {...rest} />
       ))}
     </div>
   );

@@ -27,9 +27,12 @@ export const SignInPage = () => {
     e.preventDefault();
 
     console.log(username, password);
-    axios
-      .post("http://149.28.93.112:3000/users/login", { username, password })
-      .then((responce) => history.push("/"))
+    axios.post('http://149.28.93.112:3000/users/login', { username, password }, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    withCredentials: true
+  }).then((responce) => history.push("/"))
       .catch((err) => console.log(err));
   };
 
