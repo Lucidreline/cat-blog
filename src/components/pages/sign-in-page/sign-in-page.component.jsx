@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { TextInput } from "../../text-input/text-input.component";
 import { useHistory } from "react-router-dom";
+import { SERVER_URL } from "../../../config";
 
 export const SignInPage = ({ setCurrentUser }) => {
   const history = useHistory();
@@ -29,7 +30,7 @@ export const SignInPage = ({ setCurrentUser }) => {
     console.log(username, password);
     axios
       .post(
-        "http://149.28.93.112:3000/users/login",
+        `${SERVER_URL}/users/login`,
         { username, password },
         {
           headers: {
@@ -38,8 +39,9 @@ export const SignInPage = ({ setCurrentUser }) => {
           withCredentials: true,
         }
       )
-      .then((responce) => {
-        setCurrentUser(responce.data);
+      .then(async (responce) => {
+        console.log(responce);
+        setCurrentUser(await responce.data);
         history.push("/");
       })
       .catch((err) => console.log(err));

@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Nav currentUser={currentUser} />
+        <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <div id="page-content">
           <Switch>
             <Route exact path="/">

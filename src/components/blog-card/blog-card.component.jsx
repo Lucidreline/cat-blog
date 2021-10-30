@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { SERVER_URL } from "../../config";
 
 import axios from "axios";
 
@@ -31,11 +32,7 @@ const BlogCard = ({
 
   const likePost = () => {
     axios
-      .patch(
-        `http://149.28.93.112:3000/posts/like/${id}`,
-        {},
-        { withCredentials: true }
-      )
+      .patch(`${SERVER_URL}/posts/like/${id}`, {}, { withCredentials: true })
       .then((responce) => {
         setPostLikes(responce.data.usersLiked.length);
       })

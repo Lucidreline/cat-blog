@@ -1,9 +1,59 @@
+import axios from "axios";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import { SERVER_URL } from "../../config";
 
 import "./nav.styles.scss";
 
-const Nav = ({ currentUser }) => {
+const Nav = ({ currentUser, setCurrentUser }) => {
+  const history = useHistory();
+
+  const logOut = () => {
+    axios
+      .get(`${SERVER_URL}/users/logout`, {
+        withCredentials: true,
+      })
+      .then(() => {
+        setCurrentUser(null);
+        history.push("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const LoggedInLinks = () => {
+    return (
+      <>
+        <li>
+          <NavLink activeClassName="active-link" to="/create">
+            Create
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/" onClick={() => logOut()}>
+            Log Out
+          </NavLink>
+        </li>
+      </>
+    );
+  };
+
+  const LoggedOutLinks = () => {
+    return (
+      <>
+        <li>
+          <NavLink activeClassName="active-link" to="/signin">
+            Sign In
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active-link" to="/signup">
+            Sign Up
+          </NavLink>
+        </li>
+      </>
+    );
+  };
+
   return (
     <div className="nav-bar-container">
       <nav id="nav-bar">
@@ -39,40 +89,6 @@ const Nav = ({ currentUser }) => {
         </div>
       </nav>
     </div>
-  );
-};
-
-const LoggedInLinks = () => {
-  return (
-    <>
-      <li>
-        <NavLink activeClassName="active-link" to="/create">
-          Create
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="active-link" to="/logout">
-          Log Out
-        </NavLink>
-      </li>
-    </>
-  );
-};
-
-const LoggedOutLinks = () => {
-  return (
-    <>
-      <li>
-        <NavLink activeClassName="active-link" to="/signin">
-          Sign In
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="active-link" to="/signup">
-          Sign Up
-        </NavLink>
-      </li>
-    </>
   );
 };
 

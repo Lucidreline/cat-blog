@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BlogCardList } from "../../blog-card-list/blog-card-list.component";
+import { SERVER_URL } from "../../../config";
 
 export const HomePage = () => {
   const [blogPosts, setBlogPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const blogPostResults = await axios("http://149.28.93.112:3000/posts");
+      const blogPostResults = await axios(`${SERVER_URL}/posts`);
       // [
       //   {
       //     _id: string,
